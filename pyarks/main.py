@@ -1,4 +1,4 @@
-from universalBase import UniversalPark
+from universalUSBase import UniversalPark
 
 def getPark(name):
     if name == "USF" or name == "IOA" or name == "Universal Studios Florida" or name == "Islands of Adventure":

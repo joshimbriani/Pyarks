@@ -15,8 +15,9 @@ requests.packages.urllib3.disable_warnings()
 
 class UniversalPark(Park):
     def __init__(self, name):
-        self.parkID = utility.nameToID(name)
+        self.parkID = utility.universalNameToID(name)
         self.rides = self.getRides()
+        self.isOpen = True
         super(UniversalPark, self).__init__(name)
 
     def getRides(self):
