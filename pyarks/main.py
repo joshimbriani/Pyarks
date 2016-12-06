@@ -52,4 +52,7 @@ headers.update(SHARED_HEADERS)
 r = requests.get('https://services.universalorlando.com/api/pointsofinterest/rides?pageSize=all', headers=headers)
 results = r.json()['Results']
 for item in results:
-	print item['MblDisplayName'], item['WaitTime']
+    #print item["VenueId"]
+    if item['VenueId'] == 10010:
+        #print item
+	    print item['MblDisplayName'], " - ", item['WaitTime']
