@@ -24,5 +24,27 @@ def USJTranslate(name):
         return "Snoopy's Great Race ™"
     elif name == "アメージング・アドベンチャー・オブ・スパイダーマン・ザ・ライド 4K3D":
         return "Amazing Adventure of Spider-Man The Ride 4K 3 D"
+    elif name == "妖怪ウォッチ・ザ・リアル 4":
+        return "Yokai Watch The Real 4"
+    elif name == "ジュラシック・パーク・ザ・ライド®":
+        return "Jurassic Park - The Ride ®"
+    elif name == "ジョーズ®":
+        return "Jaws ®"
+    elif name == "セサミストリート 4-D ムービーマジック™":
+        return "Sesame Street 4-D Movie Magic ™"
+    elif name == "フライト・オブ・ザ・ヒッポグリフ™":
+        return "Flight of the Hippogriff ™"
+    elif name == "ハリウッド・ドリーム・ザ・ライド":
+        return "Hollywood · Dream · The · Ride"
+    elif name == "ハリウッド・ドリーム・ザ・ライド～バックドロップ～":
+        return "Hollywood · Dream · The Ride ~ Backdrop ~"
+    elif name == "ザ・フライング・ダイナソー":
+        return "The Flying Dinosaur"
+    elif name == "ハリー・ポッター・アンド・ザ・フォービドゥン・ジャーニー™":
+        return "Harry Potter and the Forbidden Journey ™"
+    elif name == "スペース・ファンタジー・ザ・ライド":
+        return "Space Fantasy the Ride"
+    elif name == "休止中":
+        return "Inactive"
     else:
         return "No translation"

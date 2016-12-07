@@ -2,6 +2,7 @@ import requests
 
 import utility
 from parkBase import Park
+from rideBase import Ride
 
 
 class UniversalJapanPark(Park):
@@ -10,17 +11,22 @@ class UniversalJapanPark(Park):
         super(UniversalJapanPark, self).__init__(name)
 
     def getRides(self):
+        rides = []
         response = self.getResponse()
         if response["status"] == 2:
             self.isOpen = False
-            return None
+            return rides
         else:
             self.isOpen = True
             #Fill in here when the park is open
-            for waitTime in response["list"]:
-                for ride in waitTime["rows"]:
-                    print utility.USJTranslate(ride["text"].encode("utf-8"))
-            #print response
+            for waitTimeGroup in response["list"]:
+                if utility.USJTranslate(waitTimeGroup["wait"].encode("utf-8")) == "Inactive":
+                    waitTime = -2
+                else:
+                    waitTime = int(waitTimeGroup["wait"][:-1])
+                for ride in waitTimeGroup["rows"]:
+                    rides.append(Ride(self, utility.USJTranslate(ride["text"].encode("utf-8")), waitTime, ""))
+            return rides
 
     def getResponse(self):
         return requests.get("http://ar02.biglobe.ne.jp/app/waittime/waittime.json").json()
