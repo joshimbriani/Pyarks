@@ -8,4 +8,4 @@ class Ride(object):
         self.description = description
 
     def __str__(self):
-        return self.name.encode("utf-8")
+        return self.name

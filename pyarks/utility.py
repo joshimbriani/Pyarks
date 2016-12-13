@@ -2,11 +2,11 @@
 # -*- coding: utf-8 -*- 
 
 def universalNameToID(name):
-    if name == "IOA" or name == "Islands of Adventure":
+    if name == "IOA":
         return 10000
-    elif name == "USF" or name == "Universal Studios Florida":
+    elif name == "USF":
         return 10010
-    elif name == "USH" or name == "Universal Studios Hollywood":
+    elif name == "USH":
         return 13825
     else:
         return -1
@@ -48,3 +48,17 @@ def USJTranslate(name):
         return "Inactive"
     else:
         return "No translation"
+
+def seaworldNameToID(name):
+    if name == "BGT":
+        return "BG_TPA"
+    elif name == "SWO":
+        return "SW_MCO"
+    elif name == "SWSD":
+        return "SW_SAN"
+    elif name == "SWSA":
+        return "SW_SAT"
+    elif name == "BGW":
+        return "BG_PHF"
+    else:
+        return "BG_TPA"
