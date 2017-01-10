@@ -1,3 +1,6 @@
+import json
+
+import pkg_resources
 import requests
 
 import utility
@@ -15,6 +18,13 @@ class UniversalJapanPark(Park):
         response = self.getResponse()
         if response["status"] == 2:
             self.isOpen = False
+            resource_package = __name__  # Could be any module/package name
+            resource_path = '/'.join(('data', 'USJ.json'))  # Do not use os.path.join(), see below
+
+            datafile = json.loads(pkg_resources.resource_string(resource_package, resource_path))
+
+            for ride in datafile["List"][0]["Rows"]:
+                rides.append(Ride(self, ride["Text"].encode("utf-8"), -1, ""))
             return rides
         else:
             self.isOpen = True
