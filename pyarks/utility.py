@@ -44,6 +44,10 @@ def USJTranslate(name):
         return "Harry Potter and the Forbidden Journey ™"
     elif name == "スペース・ファンタジー・ザ・ライド":
         return "Space Fantasy the Ride"
+    elif name == "バックドラフト®":
+        return "Backdraft ®"
+    elif name == "シュレック 4-D アドベンチャー™":
+        return "Shrek 4-D Adventure ™"
     elif name == "休止中":
         return "Inactive"
     else:

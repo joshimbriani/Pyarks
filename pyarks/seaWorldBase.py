@@ -14,7 +14,7 @@ class SeaWorldPark(Park):
         response = self.getResponse()
         for ride in response:
             if "waitTime" in ride["status"]:
-                rides.append(Ride(self, ride["label"], ride["status"]["waitTime"], ""))
+                rides.append(Ride(self, ride["label"].encode("utf-8"), ride["status"]["waitTime"], ""))
 
         return rides
 
