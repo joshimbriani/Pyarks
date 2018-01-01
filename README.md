@@ -51,5 +51,5 @@ Description for the ride
   
   # For each ride, print out the name and wait time
   for ride in usf.rides:
-    print ride.name, " has a wait time of ", ride.waitTime
+    print(ride.name, " has a wait time of ", ride.waitTime)
 ```

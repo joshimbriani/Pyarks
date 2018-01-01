@@ -65,3 +65,5 @@ target/
 
 ### VisualStudioCode ###
 .vscode/*
+
+test.py

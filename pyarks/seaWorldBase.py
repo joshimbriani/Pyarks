@@ -1,8 +1,8 @@
 import requests
 
-from parkBase import Park
-from rideBase import Ride
-from utility import seaworldNameToID
+from .parkBase import Park
+from .rideBase import Ride
+from .utility import seaworldNameToID
 
 class SeaWorldPark(Park):
     def __init__(self, name):

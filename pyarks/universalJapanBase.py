@@ -1,8 +1,8 @@
 import requests
 
-import utility
-from parkBase import Park
-from rideBase import Ride
+import pyarks.utility
+from pyarks.parkBase import Park
+from pyarks.rideBase import Ride
 
 
 class UniversalJapanPark(Park):

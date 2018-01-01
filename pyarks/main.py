@@ -1,6 +1,6 @@
-from universalJapanBase import UniversalJapanPark
-from universalUSBase import UniversalPark
-from seaWorldBase import SeaWorldPark
+from .universalJapanBase import UniversalJapanPark
+from .universalUSBase import UniversalPark
+from .seaWorldBase import SeaWorldPark
 
 def getPark(name):
     if name == "USF" or name == "Universal Studios Florida":
@@ -22,7 +22,7 @@ def getPark(name):
     elif name == "SWSA" or name == "SeaWorld San Antonio":
         return SeaWorldPark("SWSA")
     else:
-        print "Unsupported park name"
-        print "Currently the module supports 'USF' and 'IOA'"
-        print "Returning None"
+        print("Unsupported park name")
+        print("Currently the module supports 'USF' and 'IOA'")
+        print("Returning None")
         return None
