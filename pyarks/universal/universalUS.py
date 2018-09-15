@@ -1,3 +1,5 @@
+from __future__ import print_function
+
 import hmac
 import json
 import re
@@ -9,26 +11,27 @@ from datetime import datetime
 import requests
 
 import pyarks.utility as utility
-from pyarks.parkBase import Park
-from pyarks.rideBase import Ride
+from pyarks.park import Park
+from pyarks.ride import Ride
 
 requests.packages.urllib3.disable_warnings()
 
 
-class UniversalPark(Park):
+class UniversalUSPark(Park):
     baseURL = "https://services.universalorlando.com/api"
 
     def __init__(self, name):
         self.parkID = utility.universalNameToID(name)
         self.rides = self.getRides()
         self.isOpen = True
-        super(UniversalPark, self).__init__(name)
+        super(UniversalUSPark, self).__init__(name)
 
     def getOpenCloseTime(self):
         response = self.getReponseJSON("openingTime")
         return (datetime.strptime(response["OpenTimeString"][:-6], "%Y-%m-%dT%H:%M:%S"), datetime.strptime(response["CloseTimeString"][:-6], "%Y-%m-%dT%H:%M:%S"))
 
     def getRides(self):
+        print("Getting rides and wait times")
         response = self.getReponseJSON("waitTime")
         rides = []
         for item in response:

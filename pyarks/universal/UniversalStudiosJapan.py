@@ -4,14 +4,14 @@ import pkg_resources
 import requests
 
 import pyarks.utility
-from pyarks.parkBase import Park
-from pyarks.rideBase import Ride
+from pyarks.park import Park
+from pyarks.ride import Ride
 
 
-class UniversalJapanPark(Park):
-    def __init__(self, name):
+class UniversalStudiosJapan(Park):
+    def __init__(self):
         self.rides = self.getRides()
-        super(UniversalJapanPark, self).__init__(name)
+        super(UniversalStudiosJapan, self).__init__("Universal Studios Japan")
 
     def getRides(self):
         rides = []

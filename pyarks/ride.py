@@ -3,7 +3,8 @@ class Ride(object):
         self.park = park
         self.name = name
         self.waitTime = waitTime
-        self.closed = (waitTime < 0 and waitTime > -50)
+        self.closed = (waitTime < 0 and waitTime >= -50)
+        self.isWalkthrough = (waitTime == 0)
         self.isQueueable = waitTime > -50
         self.description = description
 
