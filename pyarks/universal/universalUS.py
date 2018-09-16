@@ -9,6 +9,7 @@ from hashlib import sha256
 from datetime import datetime
 
 import requests
+import arrow
 
 import pyarks.utility as utility
 from pyarks.park import Park
@@ -28,8 +29,7 @@ class UniversalUSPark(Park):
         super(UniversalUSPark, self).__init__(name)
 
     def getOpenCloseTime(self):
-        response = self.getReponseJSON("openingTime")
-        return (datetime.strptime(response["OpenTimeString"][:-6], "%Y-%m-%dT%H:%M:%S"), datetime.strptime(response["CloseTimeString"][:-6], "%Y-%m-%dT%H:%M:%S"))
+        return self.getReponseJSON("openingTime")
 
     def getRides(self):
         print("Getting rides and wait times")
@@ -90,9 +90,11 @@ class UniversalUSPark(Park):
             r = requests.get(self.baseURL + "/venues/" +
                              str(self.parkID) + "/hours?endDate=01/01/2019", headers=headers)
             response = r.json()
+            days = []
             for day in response:
+                days.append({'openTime': arrow.get(day["OpenTimeUnix"]), 'closeTime': arrow.get(day["CloseTimeUnix"]), 'earlyEntryTime': arrow.get(day["EarlyEntryUnix"])})
                 
-            return response[0]
+            return days
 
         if dataType == "waitTime":
             r = requests.get(
