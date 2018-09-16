@@ -24,6 +24,7 @@ class UniversalUSPark(Park):
         self.parkID = utility.universalNameToID(name)
         self.rides = self.getRides()
         self.isOpen = True
+        self.schedule = self.getOpenCloseTime()
         super(UniversalUSPark, self).__init__(name)
 
     def getOpenCloseTime(self):
@@ -87,8 +88,11 @@ class UniversalUSPark(Park):
         headers.update(SHARED_HEADERS)
         if dataType == "openingTime":
             r = requests.get(self.baseURL + "/venues/" +
-                             str(self.parkID) + "/hours?endDate=01/01/2018", headers=headers)
-            return r.json()[0]
+                             str(self.parkID) + "/hours?endDate=01/01/2019", headers=headers)
+            response = r.json()
+            for day in response:
+                
+            return response[0]
 
         if dataType == "waitTime":
             r = requests.get(
