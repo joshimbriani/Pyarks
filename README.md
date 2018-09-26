@@ -4,19 +4,19 @@ Python API for getting wait time data from Amusement Parks
 ## APIs
 
 ### `getPark(parkName)`
-Gets the specified park given a park name (suuported parks listed later in the document). Returns a park object.
+Gets the specified park given a park name (supported parks listed later in the document). Returns a park object.
 
 ### `Park` (object)
 Park object
 
-#### `Park.name`
-Returns the name of the park
+### Supported Parks
+- Universal Studios Florida
+- Islands of Adventure
+- Volcano Bay
 
-### `UniversalPark` (object)
-The specific Universal object
-
-#### `UniversalPark.parkID`
-ID given to each specific Universal Park
+#### Coming Soon
+- Universal Studios Hollywood
+- Universal Studios Japan
 
 #### `UniversalPark.rides`
 List of Ride objects correspondfing to all rides at a given park. 
@@ -37,7 +37,10 @@ Wait time for the ride. Returns a negative value if the ride is closed or is a n
 Is the ride closed or open?
 
 #### `Ride.isQueueable`
-Is the ride queueable? (Typically is false when the ride is a play area or walk through attraction)
+Is the ride queueable?
+
+#### `isWalkthrough`
+Is the ride a walkthrough?
 
 #### `Ride.description`
 Description for the ride

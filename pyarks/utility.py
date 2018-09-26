@@ -8,6 +8,8 @@ def universalNameToID(name):
         return 10010
     elif name == "USH" or name == "Universal Studios Hollywood":
         return 13825
+    elif name == "VB" or name == "Volcano Bay":
+        return 13801
     else:
         return -1
 
