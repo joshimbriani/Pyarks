@@ -37,7 +37,6 @@ class UniversalUSPark(Park):
         rides = []
         for item in response:
             if item["VenueId"] == self.parkID:
-                print(item["MblDisplayName"].replace("™", "").replace("℠", ""))
                 rides.append(Ride(self, item["MblDisplayName"].replace("™", "").replace("℠", ""), item["WaitTime"], item["MblLongDescription"]))
 
         return rides
