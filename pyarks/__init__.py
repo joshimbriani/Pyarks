@@ -2,6 +2,7 @@ from __future__ import print_function
 from .universal.IslandsOfAdventure import IslandsOfAdventure
 from .universal.UniversalStudiosFlorida import UniversalStudiosFlorida
 from .universal.VolcanoBay import VolcanoBay
+from .universal.UniversalStudiosHollywood import UniversalStudiosHollywood
 
 __version__ = "0.1.3"
 
@@ -10,7 +11,8 @@ name = "pyarks"
 parks = {
     'islandsOfAdventure': IslandsOfAdventure,
     'universalStudiosFlorida': UniversalStudiosFlorida,
-    'VolcanoBay': VolcanoBay
+    'volcanoBay': VolcanoBay,
+    'universalStudiosHollywood': UniversalStudiosHollywood
 }
 
 def getPark(name):
@@ -20,8 +22,10 @@ def getPark(name):
         return VolcanoBay()
     elif name == "IOA" or name == "Islands of Adventure":
         return IslandsOfAdventure()
+    elif name == "USH" or name == "Universal Studios Hollywood":
+        return UniversalStudiosHollywood()
     else:
         print("Unsupported park name")
-        print("Currently the module supports 'USF', 'VB' and 'IOA'")
+        print("Currently the module supports 'USF', 'USH', 'VB' and 'IOA'")
         print("Returning None")
         return None
