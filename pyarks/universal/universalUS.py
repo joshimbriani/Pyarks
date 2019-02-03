@@ -86,8 +86,9 @@ class UniversalUSPark(Park):
 
         headers.update(SHARED_HEADERS)
         if dataType == "openingTime":
+            now = arrow.now().shift(months=3)
             r = requests.get(self.baseURL + "/venues/" +
-                             str(self.parkID) + "/hours?endDate=01/01/2019", headers=headers)
+                             str(self.parkID) + "/hours?endDate=" + now.format('MM') + "/" +  now.format('DD') + "/" + now.format('YYYY'), headers=headers)
             response = r.json()
             days = []
             for day in response:
