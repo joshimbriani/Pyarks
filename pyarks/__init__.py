@@ -4,7 +4,7 @@ from .universal.UniversalStudiosFlorida import UniversalStudiosFlorida
 from .universal.VolcanoBay import VolcanoBay
 from .universal.UniversalStudiosHollywood import UniversalStudiosHollywood
 
-__version__ = "0.1.3"
+__version__ = "0.1.4"
 
 name = "pyarks"
 

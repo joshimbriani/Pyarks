@@ -32,7 +32,6 @@ class UniversalUSPark(Park):
         return self.getReponseJSON("openingTime")
 
     def getRides(self):
-        print("Getting rides and wait times")
         response = self.getReponseJSON("waitTime")
         rides = []
         for item in response:
